@@ -18,7 +18,7 @@ function Button(props: ButtonProps){
 export default function App() {
   return (
     <View style={styles.container}>
-      <Button title='Clique aqui!!!' />
+      <Button title='Clique aqui!!!'  />
       <StatusBar style="auto" />
     </View>
   );
