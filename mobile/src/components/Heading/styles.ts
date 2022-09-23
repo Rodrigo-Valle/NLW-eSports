@@ -6,7 +6,9 @@ import { Background } from "../background";
 export const styles = StyleSheet.create({
     container: {
         width: '100%',
-        padding: 32,
+        paddingLeft: 32,
+        paddingTop: 8,
+        paddingBottom: 8
     },
     title: {
         color: THEME.COLORS.TEXT,
