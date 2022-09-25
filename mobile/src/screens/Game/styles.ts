@@ -9,41 +9,41 @@ export const styles = StyleSheet.create({
   header: {
     width: "100%",
     flexDirection: "row",
-    alignItems: 'center',
+    alignItems: "center",
     paddingHorizontal: 24,
     marginTop: 28,
-    justifyContent: 'space-between'
+    justifyContent: "space-between",
   },
   logo: {
     width: 72,
-    height:40
+    height: 40,
   },
   right: {
     width: 20,
-    height: 20
+    height: 20,
   },
   cover: {
     width: 280,
     height: 120,
     borderRadius: 8,
-    marginTop: 16
+    marginTop: 16,
   },
   containerList: {
-    width: "100%"
+    width: "100%",
   },
   contentList: {
     paddingLeft: 32,
     paddingRight: 64,
-    alignItems: 'flex-start',
+    alignItems: "flex-start",
   },
   emptyListText: {
-     color: THEME.COLORS.CAPTION_300,
-     fontSize: THEME.FONT_SIZE.SM,
-     fontFamily: THEME.FONT_FAMILY.REGULAR
+    color: THEME.COLORS.CAPTION_300,
+    fontSize: THEME.FONT_SIZE.SM,
+    fontFamily: THEME.FONT_FAMILY.REGULAR,
   },
-  emptyList: { 
-    flex:1, 
-    alignItems: 'center', 
-    justifyContent: "center"
-  }
+  emptyList: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

@@ -2,7 +2,6 @@ import * as Dialog from "@radix-ui/react-dialog";
 import * as CheckBox from "@radix-ui/react-checkbox";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 
-
 import { Check, GameController } from "phosphor-react";
 import { Input } from "./Form/input";
 import { FormEvent, useEffect, useState } from "react";
@@ -33,7 +32,7 @@ export function CreateAdModal() {
         const formData = new FormData(event.target as HTMLFormElement)
         const data = Object.fromEntries(formData)
 
-        if(!data.name) {
+        if (!data.name) {
             return;
         }
 

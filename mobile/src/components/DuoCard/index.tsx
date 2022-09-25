@@ -1,4 +1,4 @@
-import { TouchableOpacity, View,Text } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 import { styles } from "./styles";
 import { DuoInfo } from "../DuoInfo/index"
 import { THEME } from "../../theme";
@@ -45,7 +45,7 @@ export function DuoCard({ data, onConnect }: Props) {
                 <GameController
                     color={THEME.COLORS.TEXT}
                     size={20}
-                />   
+                />
 
                 <Text style={styles.buttonTitle}>
                     Conectar

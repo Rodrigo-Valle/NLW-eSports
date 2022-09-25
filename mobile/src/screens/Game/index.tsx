@@ -15,7 +15,6 @@ import { DuoMatch } from "../../components/DuoMatch";
 
 import { useEffect, useState } from "react";
 
-
 export function Game() {
 
     const [duos, setDuos] = useState<DuoCardProps[]>([])

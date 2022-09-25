@@ -19,7 +19,7 @@ export function DuoMatch({ discord, onClose, ...rest }: Props) {
         setIsCopping(true);
         await ClipBoard.setStringAsync(discord);
 
-        Alert.alert("Discord Copiado", "Discord copiado para sua área de transferência")
+        Alert.alert("Discord Copiado", "Discord copiado para sua área de transferência");
         setIsCopping(false);
     }
 
