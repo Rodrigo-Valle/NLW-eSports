@@ -11,12 +11,15 @@ import logoImg from "../../assets/logo-nlw-esports.png"
 import { Background } from "../../components/background";
 import { Heading } from "../../components/Heading/index"
 import { DuoCard, DuoCardProps } from "../../components/DuoCard";
+import { DuoMatch } from "../../components/DuoMatch";
+
 import { useEffect, useState } from "react";
 
 
 export function Game() {
 
     const [duos, setDuos] = useState<DuoCardProps[]>([])
+    const [discordDuoSelected, setDiscordDuoSelected] = useState('');
 
     const navigation = useNavigation();
 
@@ -26,6 +29,13 @@ export function Game() {
     function handleGoBack() {
         navigation.goBack();
     }
+
+    async function getDiscordUser(adsId: string) {
+        fetch(`http://192.168.15.6:8000/ads/${adsId}/discord`)
+            .then(response => response.json())
+            .then(data => { setDiscordDuoSelected(data.discord) })
+    };
+
 
     useEffect(() => {
         fetch(`http://192.168.15.6:8000/games/${game.id}/ads`)
@@ -56,22 +66,28 @@ export function Game() {
 
                 <Heading title={game.title} subtitle="Conecte-se e começe a jogar!" />
 
-                <FlatList 
-                    data={duos} 
+                <FlatList
+                    data={duos}
                     keyExtractor={item => item.id}
-                    renderItem={({item}) => (
+                    renderItem={({ item }) => (
                         <DuoCard data={item}
-                            onConnect={() => {}} /> 
+                            onConnect={() => { getDiscordUser(item.id) }} />
                     )}
                     horizontal
                     style={styles.containerList}
-                    contentContainerStyle={[duos.length > 0 ? styles.contentList : styles.emptyList ]}
+                    contentContainerStyle={[duos.length > 0 ? styles.contentList : styles.emptyList]}
                     showsHorizontalScrollIndicator={false}
                     ListEmptyComponent={() => (
                         <Text style={styles.emptyListText}>
                             Não há anúncios públicados ainda
                         </Text>
                     )}
+                />
+
+                <DuoMatch
+                    visible={discordDuoSelected.length > 0}
+                    discord={discordDuoSelected}
+                    onClose={() => setDiscordDuoSelected('')}
                 />
             </SafeAreaView>
         </Background>
