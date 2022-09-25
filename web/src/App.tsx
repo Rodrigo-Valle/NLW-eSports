@@ -1,10 +1,11 @@
 import './styles/main.css'
 import logoImg from './assets/logo-nlw-esports.png'
-import { MagnifyingGlassPlus } from 'phosphor-react'
 import { GameBanner } from './components/GameBanner'
 import { CreateAdBanner } from './components/CreateAdBanner'
 import { useEffect, useState } from 'react'
-
+import * as Dialog from "@radix-ui/react-dialog"
+import { CreateAdModal } from './components/CreateAdModal'
+import axios from 'axios'
 interface Game {
   id: string;
   title: string;
@@ -18,11 +19,9 @@ function App() {
   const [games, setgames] = useState<Game[]>([])
 
   useEffect(() => {
-    fetch('http://localhost:8000/games')
-      .then(response => response.json())
-      .then(data => {
-        setgames(data)
-      })
+    axios('http://localhost:8000/games').then(response => {
+      setgames(response.data)
+    })
   }, [])
 
   return (
@@ -46,7 +45,11 @@ function App() {
         })}
       </div>
 
-      <CreateAdBanner />
+      <Dialog.Root>
+        <CreateAdBanner />
+
+        <CreateAdModal />
+      </Dialog.Root>
 
     </div>
   )
